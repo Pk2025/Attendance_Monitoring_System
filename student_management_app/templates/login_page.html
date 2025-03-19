@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Attendance Monitoring System | Log in</title>
+  <!-- Cache control -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static "plugins/fontawesome-free/css/all.min.css" %}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="{% static "plugins/icheck-bootstrap/icheck-bootstrap.min.css" %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static "dist/css/adminlte.min.css" %}">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static "dist/css/custom.css" %}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
+  <!-- Direct style overrides -->
+  <style>
+    body.hold-transition.login-page {
+      background-color: #f2f6f9 !important;
+    }
+    .btn-primary, 
+    .login-card-body .btn-primary, 
+    button[type="submit"].btn-primary {
+      background-color: #28a745 !important;
+      border-color: #28a745 !important;
+    }
+    .btn-primary:hover {
+      background-color: #218838 !important;
+      border-color: #1e7e34 !important;
+    }
+  </style>
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="../../index2.html"><b>Attendance</b> Monitoring System</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to Attendance Monitoring System</p>
+
+      <form action="/doLogin" method="post" id="demo-form">
+      {% csrf_token %}
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Email" name="email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Password" name="password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+                <div class="g-recaptcha" data-sitekey="6LeWtqUZAAAAAMO6YmxX5_XWel9hLWrb_iEiff26"></div>
+        </div>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block" >Sign In</button>
+          </div><!-- /.col -->
+           <div class="col-12 text-center">
+             <a href="{% url 'password_reset' %}">Reset Password</a>
+          </div><!-- /.col -->
+            <div class="col-12 text-center">
+             <a href="{% url 'signup_admin' %}">Admin Signup FOR TESTING</a>
+          </div><!-- /.col -->
+                        <div class="col-12 text-center">
+             <a href="{% url 'signup_staff' %}">Staff Signup FOR TESTING</a>
+          </div><!-- /.col -->
+                                    <div class="col-12 text-center">
+             <a href="{% url 'signup_student' %}">Student Signup FOR TESTING</a>
+          </div><!-- /.col -->
+        </div>
+        <div class="row">
+          {% if messages %}
+         <div class="col-12">
+            {% for message in messages %}
+            {% if message.tags == 'error' %}
+            <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+            {% endif %}
+            {% if message.tags == 'success' %}
+            <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+            {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </form>
+
+      <!-- /.social-auth-links -->
+
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="{% static "plugins/jquery/jquery.min.js" %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static "plugins/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static "dist/js/adminlte.min.js" %}"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- Script to ensure styles persist -->
+<script>
+  // Apply styles immediately
+  document.body.style.backgroundColor = "#f2f6f9";
+  document.body.style.backgroundColor = "#f8e6e6";
+  
+  // Apply styles again after page load
+  window.addEventListener('load', function() {
+    document.body.style.backgroundColor = "#f8e6e6";
+    
+    // And keep applying them every 100ms for a few seconds to override any script changes
+    let count = 0;
+    const interval = setInterval(function() {
+      document.body.style.backgroundColor = "#f8e6e6";
+      
+      // Find all login buttons and set their background color
+      const buttons = document.querySelectorAll('.btn-primary, button[type="submit"]');
+      buttons.forEach(function(button) {
+        button.style.backgroundColor = "#28a745";
+        button.style.borderColor = "#28a745";
+      });
+      
+      count++;
+      if (count > 50) clearInterval(interval); // Stop after 5 seconds
+    }, 100);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+/* Custom Color Scheme */
+:root {
+    --primary-color: #007bff;  /* Blue */
+    --secondary-color: #6c757d;  /* Gray */
+    --success-color: #28a745;  /* Green */
+    --info-color: #17a2b8;     /* Cyan */
+    --warning-color: #ffc107;  /* Yellow */
+    --danger-color: #dc3545;   /* Red */
+    --light-color: #f8f9fa;    /* Light gray */
+    --dark-color: #343a40;     /* Dark gray */
+    --text-light: #ffffff;     /* White text */
+    --text-dark: #212529;      /* Dark text */
+    --login-button-color: #28a745; /* Green login button */
+    --login-bg-color: #f2f6f9;  /* Light blue-gray background */
+    --sidebar-bg: #343a40;      /* Dark sidebar background */
+    --header-bg: #007bff;       /* Blue header */
+    --action-button: #28a745;   /* Green action button */
+}
+
+/* Navbar Customization */
+.main-header {
+    background: var(--header-bg) !important;
+}
+
+.main-header .navbar-nav .nav-link {
+    color: var(--text-light) !important;
+}
+
+/* Sidebar Customization */
+.sidebar {
+    background: var(--sidebar-bg) !important;
+}
+
+.sidebar-dark-primary {
+    background: var(--sidebar-bg) !important;
+}
+
+.sidebar .nav-item .nav-link {
+    color: var(--text-light) !important;
+}
+
+.sidebar .nav-item .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Card Customization */
+.card-primary {
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--text-light) !important;
+}
+
+.card {
+    background-color: var(--light-color);
+    color: var(--text-dark);
+    border: 1px solid rgba(0, 123, 255, 0.2);
+}
+
+/* Button Customization */
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--text-light) !important;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3 !important;
+    border-color: #0056b3 !important;
+}
+
+/* Action buttons (like Edit, Approve, etc.) */
+.btn-success, 
+.btn-edit, 
+button.edit, 
+a.edit,
+.edit {
+    background-color: var(--action-button) !important;
+    border-color: var(--action-button) !important;
+    color: var(--text-light) !important;
+}
+
+.btn-success:hover, 
+.btn-edit:hover,
+button.edit:hover,
+a.edit:hover,
+.edit:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
+}
+
+/* Table Customization */
+.table-primary {
+    background-color: rgba(0, 123, 255, 0.1) !important;
+}
+
+.table thead th {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.table tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+/* Dashboard Cards */
+.small-box {
+    border-radius: 4px;
+    color: var(--text-light) !important;
+}
+
+.bg-info, .small-box.bg-info {
+    background-color: #17a2b8 !important; 
+}
+
+.bg-success, .small-box.bg-success {
+    background-color: #28a745 !important;
+}
+
+.bg-warning, .small-box.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.bg-danger, .small-box.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+/* Login Page Customization */
+body.hold-transition.login-page, 
+body.login-page,
+html body.login-page {
+    background-color: var(--login-bg-color) !important;
+    background-image: none !important;
+    transition: none !important;
+}
+
+/* Login Button Override */
+.login-card-body .btn-primary, 
+.login-box .btn-primary,
+form[action="/doLogin"] .btn-primary,
+.login-box-body .btn-primary,
+.login-box button[type="submit"],
+.card-body button[type="submit"],
+.login-card-body button[type="submit"] {
+    background-color: var(--login-button-color) !important;
+    border-color: var(--login-button-color) !important;
+    color: var(--text-light) !important;
+}
+
+.login-card-body .btn-primary:hover,
+.login-box .btn-primary:hover,
+form[action="/doLogin"] .btn-primary:hover,
+.login-box-body .btn-primary:hover,
+.login-box button[type="submit"]:hover,
+.card-body button[type="submit"]:hover,
+.login-card-body button[type="submit"]:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
+}
+
+/* Charts and graphs background */
+.card-header {
+    background-color: transparent;
+}
+
+.card-info .card-header,
+.card-success .card-header,
+.card-primary .card-header {
+    color: var(--text-light);
+}
+
+.card-info .card-header {
+    background-color: var(--primary-color);
+}
+
+.card-success .card-header {
+    background-color: var(--success-color);
+}
+
+.btn-box-tool {
+    color: var(--text-light) !important;
+}
+
+/* Session Year Adding Page */
+.add-session-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+/* Change password button */
+button[type="submit"].change-password-btn {
+    background-color: var(--success-color) !important;
+    border-color: var(--success-color) !important;
+}
+
+/* Feedback message success colors */
+.alert-success, .success-message, .feedback-success {
+    background-color: var(--success-color) !important;
+    color: var(--text-light) !important;
+}
+
+/* Attendance status colors */
+.present-status {
+    background-color: var(--success-color) !important;
+    color: var(--text-light) !important;
+}
+
+.absent-status {
+    background-color: var(--danger-color) !important;
+    color: var(--text-light) !important;
+}
+
+/* Leave status colors */
+.pending-status {
+    background-color: var(--info-color) !important;
+    color: var(--text-light) !important;
+}
+
+.approved-status {
+    background-color: var(--success-color) !important;
+    color: var(--text-light) !important;
+}
+
+.disapproved-status {
+    background-color: var(--danger-color) !important;
+    color: var(--text-light) !important;
+}
+
+/* Custom Form Controls */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+}
+
+/* Custom Loading Spinner */
+.loading {
+    border: 3px solid var(--light-color);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+/* Title and Header Text */
+.brand-text, .brand-link {
+    color: var(--text-light) !important;
+}
+
+.navbar-brand {
+    color: var(--text-light) !important;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: var(--light-color);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(0, 123, 255, 0.2);
+}
+
+.breadcrumb-item a {
+    color: var(--primary-color);
+}
+
+.breadcrumb-item.active {
+    color: var(--secondary-color);
+}
+
+/* Additional Text Contrast */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-secondary {
+    color: var(--secondary-color) !important;
+}
+
+/* Form Labels */
+.form-group label {
+    color: var(--text-dark);
+}
+
+/* Alert Messages */
+.alert {
+    color: var(--text-dark);
+}
+
+.alert-primary {
+    background-color: rgba(0, 123, 255, 0.1);
+    border-color: var(--primary-color);
+    color: var(--text-dark);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Force background color on login page */
+html, body {
+    height: 100% !important;
+}
+
+/* Additional direct targeting for the login button */
+.btn.btn-block.btn-primary {
+    background-color: var(--login-button-color) !important;
+    border-color: var(--login-button-color) !important;
+}
