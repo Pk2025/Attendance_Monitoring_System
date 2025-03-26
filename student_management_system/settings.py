@@ -9,8 +9,13 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-import pymysql
-pymysql.install_as_MySQLdb()
+
+# Use PyMySQL as a fallback
+try:
+    import pymysql
+    pymysql.install_as_MySQLdb()
+except ImportError:
+    pass
 
 import os
 
@@ -89,11 +94,11 @@ WSGI_APPLICATION = 'student_management_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'attendance_monitoring_system',
-        'USER': 'student_management_system',
-        'PASSWORD': 'student_management_password',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': os.getenv('DB_NAME', 'attendance_monitoring_system'),
+        'USER': os.getenv('DB_USER', 'student_management_system'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'student_management_password'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '3306'),
     }
 }
 
