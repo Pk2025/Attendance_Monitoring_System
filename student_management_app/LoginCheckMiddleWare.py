@@ -7,10 +7,12 @@ class LoginCheckMiddleWare(MiddlewareMixin):
 
     def process_view(self,request,view_func,view_args,view_kwargs):
         modulename=view_func.__module__
-        print(modulename)
+        print(f"Middleware - Module name: {modulename}")
         user=request.user
         if user.is_authenticated:
-            if user.user_type == "1":
+            print(f"Middleware - User is authenticated, type: {user.user_type}, type of type: {type(user.user_type)}")
+            user_type = str(user.user_type)  # Convert to string for consistency
+            if user_type == "1":
                 if modulename == "student_management_app.HodViews":
                     pass
                 elif modulename == "student_management_app.views" or modulename == "django.views.static":
@@ -19,14 +21,14 @@ class LoginCheckMiddleWare(MiddlewareMixin):
                     pass
                 else:
                     return HttpResponseRedirect(reverse("admin_home"))
-            elif user.user_type == "2":
+            elif user_type == "2":
                 if modulename == "student_management_app.StaffViews" or modulename == "student_management_app.EditResultVIewClass":
                     pass
                 elif modulename == "student_management_app.views" or modulename == "django.views.static":
                     pass
                 else:
                     return HttpResponseRedirect(reverse("staff_home"))
-            elif user.user_type == "3":
+            elif user_type == "3":
                 if modulename == "student_management_app.StudentViews" or modulename == "django.views.static":
                     pass
                 elif modulename == "student_management_app.views":
@@ -34,6 +36,7 @@ class LoginCheckMiddleWare(MiddlewareMixin):
                 else:
                     return HttpResponseRedirect(reverse("student_home"))
             else:
+                print(f"Middleware - Unknown user type: {user.user_type}")
                 return HttpResponseRedirect(reverse("show_login"))
 
         else:

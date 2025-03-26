@@ -56,7 +56,8 @@ def doLogin(request):
         
         print(f"User authenticated: {user is not None}")
         
-        # For testing - if all authentication methods fail, log in as admin anyway
+        # For testing - comment or remove this in production
+        """
         if user is None:
             print("All authentication methods failed, trying to find admin user...")
             try:
@@ -67,18 +68,26 @@ def doLogin(request):
                     return HttpResponseRedirect('/admin_home')
             except Exception as e:
                 print(f"Error finding admin: {str(e)}")
+        """
         
         if user!=None:
             login(request,user)
             print(f"User logged in: {request.user.is_authenticated}")
             print(f"User type: {user.user_type}")
             
-            if user.user_type==1:
+            # Convert user_type to int for comparison
+            user_type = int(user.user_type)
+            print(f"User type (as int): {user_type}")
+            
+            if user_type == 1:
                 return HttpResponseRedirect('/admin_home')
-            elif user.user_type==2:
+            elif user_type == 2:
                 return HttpResponseRedirect(reverse("staff_home"))
-            else:
+            elif user_type == 3:
                 return HttpResponseRedirect(reverse("student_home"))
+            else:
+                messages.error(request, f"Unknown user type: {user.user_type}")
+                return HttpResponseRedirect("/")
         else:
             messages.error(request,"Invalid Login Details")
             return HttpResponseRedirect("/")
