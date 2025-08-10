@@ -1,3 +1,4 @@
+
 /* Custom Color Scheme */
 :root {
     --primary-color: #007bff;  /* Blue */
@@ -8,12 +9,12 @@
     --danger-color: #dc3545;   /* Red */
     --light-color: #f8f9fa;    /* Light gray */
     --dark-color: #343a40;     /* Dark gray */
-    --text-light: #ffffff;     /* White text */
+    --text-light: #cd2b2b;     /* White text */
     --text-dark: #212529;      /* Dark text */
     --login-button-color: #28a745; /* Green login button */
     --login-bg-color: #f2f6f9;  /* Light blue-gray background */
     --sidebar-bg: #343a40;      /* Dark sidebar background */
-    --header-bg: #007bff;       /* Blue header */
+    --header-bg: hsl(0, 0%, 99%);       /* Blue header */
     --action-button: #28a745;   /* Green action button */
 }
 

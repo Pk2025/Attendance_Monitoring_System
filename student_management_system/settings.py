@@ -9,13 +9,8 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
-# Use PyMySQL as a fallback
-try:
-    import pymysql
-    pymysql.install_as_MySQLdb()
-except ImportError:
-    pass
+import pymysql
+pymysql.install_as_MySQLdb()
 
 import os
 
@@ -94,11 +89,11 @@ WSGI_APPLICATION = 'student_management_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME', 'attendance_monitoring_system'),
-        'USER': os.getenv('DB_USER', 'student_management_system'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'student_management_password'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '3306'),
+        'NAME': 'student_management_db',  # Use the database name you created
+        'USER': 'student_management_system',
+        'PASSWORD': 'P@rth2025',  # Use the password you set
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -172,3 +167,10 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+'''Activation code 
+Set-ExecutionPolicy Unrestricted -Scope Process
+venv\Scripts\activate
+python manage.py runserver
+'''
